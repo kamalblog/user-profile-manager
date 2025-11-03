@@ -1,6 +1,4 @@
 const validator = require('validator');
-
-
 module.exports = function sanitizeInput(req, res, next) {
 // Very small sanitizer: sanitize all string body values
 if (req.body && typeof req.body === 'object') {

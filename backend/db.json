@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 1762024936935,
+      "name": "Amit kumar",
+      "email": "Amit@gmail.com",
+      "phone": 998473733,
+      "fullname": "amit kumar shrivastav",
+      "country": "india",
+      "password": "$2b$10$mBXm4DsVSjJo46jOnR03UuwJl2BW4nGr44CWeb7.jT0KachdO6oKK"
+    },
+    {
+      "id": 1762028579791,
+      "name": "TestUser",
+      "email": "test@example.com",
+      "phone": "9876543210",
+      "fullname": "Updated Test User",
+      "country": "India Updated",
+      "password": "$2b$10$FJnUrRZMkYSp97Opot1QqO16SPWhP2ta0ycJ34ugLdICP.g7Aje9e"
+    },
+    {
+      "id": 1762101170755,
+      "name": "sumit",
+      "email": "sumitk@gmail.com",
+      "phone": "8855226622",
+      "fullname": "sumit k",
+      "country": "india",
+      "password": "$2b$10$E4lABGvnth8Uwal99Pia5OCaXc30m5R8F4oliIPrE0pfwyUe/1ZP6"
+    },
+    {
+      "id": 1762161385577,
+      "name": "kamalsri1234",
+      "email": "kamalsri123@gmail.com",
+      "phone": 12345565,
+      "fullname": "kamalkant12 shrivastav",
+      "country": "india",
+      "password": "$2b$10$7Zqr.1cfS2gNrQxSwJq5huG0PIIRjx95.oHM/muI6KcZnB7LpCcqq"
+    },
+    {
+      "id": 1762162312287,
+      "name": "mohit",
+      "email": "mohitf@gmail.com",
+      "phone": "885522665",
+      "fullname": "mohit kumar",
+      "country": "usa",
+      "password": "$2b$10$mJC1k8SlVv6j.6UTFXE9KOz0SMho2USzhV3YQNphokC3/dMqxnKMO"
+    },
+    {
+      "id": 1762181558349,
+      "name": "TestUser123",
+      "email": "test1@example.com",
+      "phone": "9876543230",
+      "fullname": "Test User",
+      "country": "India",
+      "password": "$2b$10$C1ElqFjFDjI3v.klcAKt7.FzgXBSxNQUHvwH91EOjTSLKvrITtfka"
+    }
+  ]
+}

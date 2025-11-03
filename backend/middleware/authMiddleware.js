@@ -1,8 +1,11 @@
-const jwt = require('jsonwebtoken');
+import  jwt from 'jsonwebtoken';
+import dotenv from "dotenv";
+dotenv.config();
+
 const secret = process.env.JWT_SECRET || 'dev_secret';
 
 
-module.exports = function (req, res, next) {
+ export const verifyToken = function (req, res, next) {
 const auth = req.headers.authorization;
 if (!auth) return res.status(401).json({ error: 'Missing auth token' });
 const token = auth.split(' ')[1];
