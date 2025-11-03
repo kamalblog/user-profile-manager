@@ -1,0 +1,126 @@
+.users-container {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.users-box {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 90%;
+  max-width: 1000px;
+  animation: fadeIn 0.6s ease;
+}
+
+.users-title {
+  text-align: center;
+  color: #333;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* 🔍 Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.search-bar input {
+  width: 80%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #667eea;
+}
+
+/* 🧱 User Card Grid */
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* 👤 Individual User Card */
+.user-card {
+  background-color: #f9f9ff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.user-card:hover {
+  transform: translateY(-4px);
+  background-color: #eef0ff;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Avatar */
+.user-avatar {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Info text */
+.user-info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.user-info p {
+  margin: 2px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.user-info span {
+  color: #777;
+  font-size: 13px;
+}
+
+/* No users message */
+.no-users {
+  text-align: center;
+  color: #777;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

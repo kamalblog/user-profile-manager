@@ -1,68 +1,41 @@
-import React from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
-import LoginForm from "./components/LoginForm";
-import Profile from "./components/Profile";
-import RepoSearch from "./components/RepoSearch";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-/**
- * App.jsx
- * - Main entry for routing and navigation
- * - Handles login, profile, and GitHub repo pages
- * - Logout clears JWT token from localStorage
- */
+const Home = lazy(() => import("./pages/Home"));
+const Register = lazy(() => import("./pages/Register"));
+const Login = lazy(() => import("./pages/Login"));
+const Profile = lazy(() => import("./pages/Profile"));
+const EditProfile = lazy(() => import("./pages/EditProfile"));
+const AllUsers = lazy(() => import("./pages/AllUsers"));
+const GithubRepos = lazy(() => import("./pages/GithubRepos"));
+
 export default function App() {
-  const navigate = useNavigate();
-
-  // Check if user logged in
-  const isAuthenticated = () => !!localStorage.getItem("token");
-
-  // Logout user
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
-  };
-
   return (
-    <div
-      style={{
-        maxWidth: 1000,
-        margin: "0 auto",
-        padding: 20,
-        fontFamily:
-          'system-ui, -apple-system, Roboto, "Segoe UI", sans-serif',
-      }}
-    >
-      {/* Header */}
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 20,
-        }}
+    <BrowserRouter>
+      {/* 🌀 Suspense fallback: shown while lazy components load */}
+      <Suspense
+        fallback={
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100vh",
+              fontSize: "18px",
+              fontWeight: "bold",
+              color: "#555",
+            }}
+          >
+            ⏳ Loading page...
+          </div>
+        }
       >
-        <h1 style={{ margin: 0, fontSize: 22 }}>User Profile Manager</h1>
-
-        <nav style={{ display: "flex", gap: 12, alignItems: "center" }}>
-          <Link to="/">Home</Link>
-          {isAuthenticated() && <Link to="/profile">Profile</Link>}
-          {isAuthenticated() && <Link to="/repos">GitHub Repos</Link>}
-          {isAuthenticated() ? (
-            <button onClick={logout} style={{ cursor: "pointer" }}>
-              Logout
-            </button>
-          ) : (
-            <Link to="/">Sign in</Link>
-          )}
-        </nav>
-      </header>
-
-      {/* Routes */}
-      <main>
         <Routes>
-          {/* Home: Login form */}
-          <Route path="/" element={<LoginForm />} />
+          {/* Public routes */}
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/github" element={<GithubRepos />} />
 
           {/* Protected routes */}
           <Route
@@ -74,30 +47,47 @@ export default function App() {
             }
           />
           <Route
-            path="/repos"
+            path="/edit-profile"
             element={
               <ProtectedRoute>
-                <RepoSearch />
+                <EditProfile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users"
+            element={
+              <ProtectedRoute>
+                <AllUsers />
               </ProtectedRoute>
             }
           />
 
-          {/* Fallback */}
+          {/* Default Route */}
+            <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="*"
             element={
-              <div>
-                Page not found. <Link to="/">Go Home</Link>
+              <div
+                style={{
+                  textAlign: "center",
+                  marginTop: "20%",
+                  fontSize: "20px",
+                }}
+              >
+                🚫 404 | Page Not Found
               </div>
             }
           />
         </Routes>
-      </main>
-
-      {/* Footer */}
-      <footer style={{ marginTop: 40, color: "#666" }}>
-        <small>Built with React + Node.js (Express)</small>
-      </footer>
-    </div>
+      </Suspense>
+    </BrowserRouter>
   );
 }
