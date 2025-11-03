@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "46665f42-9a29-4cbf-a05d-6fa4c98d3797",
+		"name": "user-profile-manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3357317"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \r\n      \"email\": \"test1@example.com\",\r\n      \"password\": \"kamal@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alluser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/v1/auth/getAllUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"getAllUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc2MjE4MTU1ODM0OSwiZW1haWwiOiJ0ZXN0MUBleGFtcGxlLmNvbSIsImlhdCI6MTc2MjE4MTY4NiwiZXhwIjoxNzYyMTg1Mjg2fQ.Wg0F8O_8XyMo_Ch5QZeAUyFUBmzAgO8nBigXM_U7u9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/v1/profile/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc2MjE4MTU1ODM0OSwiZW1haWwiOiJ0ZXN0MUBleGFtcGxlLmNvbSIsImlhdCI6MTc2MjE4MTY4NiwiZXhwIjoxNzYyMTg1Mjg2fQ.Wg0F8O_8XyMo_Ch5QZeAUyFUBmzAgO8nBigXM_U7u9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"name\": \"TestUser123\",\r\n      \"email\": \"test1@example.com\",\r\n      \"phone\": \"9876543230\",\r\n      \"fullname\": \"Test User\",\r\n      \"country\": \"India\",\r\n      \"password\": \"kamal@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/profile/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"name\": \"TestUser1\",\r\n      \"email\": \"test1@example.com\",\r\n      \"phone\": \"9876543230\",\r\n      \"fullname\": \"Test User\",\r\n      \"country\": \"India\",\r\n      \"password\": \"kamal@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
